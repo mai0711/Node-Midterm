@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 //middleware
 router.use(bodyParser.urlencoded({extended: true}))
 
-
 //Register page(view)
 router.get("/register", (req, res) => {
     res.render("register");
@@ -34,7 +33,6 @@ router.post("/register", async (req,res) => {
     res.redirect("/api/auth/login");
 });
 
-
 //login page(view)
 router.get("/login", (req, res) => {
     res.render("login");
@@ -54,11 +52,8 @@ router.post("/login", async(req, res) => {
     }catch(err){
         res.status(500).json(err);
     }
-    res.redirect("/api/auth/mypage");
+    
+    res.redirect("/api/auth/mypage")
 })
-
-
-
-
 
 module.exports = router
